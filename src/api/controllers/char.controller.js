@@ -32,7 +32,18 @@ const getAllChars = async (req, res) => {
     } catch (error) {
         res.json(error);
     }
+
+};
+
+const getCharbyId = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const character = await Character.findById(id);
+        res.json(character);
+    } catch (error) {
+        res.json(error);
+    }
 };
 
 
-module.exports = { getAllChars };
+module.exports = { getAllChars, getCharbyId };

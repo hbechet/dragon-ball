@@ -8,7 +8,7 @@ env.config();
 
 connectDB();
 const server = express();
-const PORT = process.env.PORT;
+const PORT = 5000;
 
 server.use(cors());
 server.use(express.json());
