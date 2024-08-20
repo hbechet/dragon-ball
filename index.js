@@ -1,6 +1,7 @@
 const express = require('express');
 const { connectDB } = require('./src/utils/db')
 const routeChars = require('./src/api/routes/char.routes');
+const cors = require('cors');
 
 const env = require('dotenv')
 env.config();
@@ -9,6 +10,7 @@ connectDB();
 const server = express();
 const PORT = process.env.PORT;
 
+server.use(cors());
 server.use(express.json());
 server.use('/api/chars', routeChars);
 
