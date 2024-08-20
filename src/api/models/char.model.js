@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const charSchema = new Schema({
     name: { type: String, require: true, unique: true },
-    planet: { type: String, require: true },
-    image: { type: String, require: true },
+    planet: { type: String },
+    image: { type: String },
     ki: { type: Number }
 },
     {

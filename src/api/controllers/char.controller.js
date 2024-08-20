@@ -45,5 +45,22 @@ const getCharbyId = async (req, res) => {
     }
 };
 
+const updateCharbyId = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const updateBody = req.body;
+        const updatedChar = await Character.findByIdAndUpdate(id, updateBody, { new: true });
+        console.log(updatedChar);
+        if (updatedChar) {
+            res.status(201).json(updatedChar)
 
-module.exports = { getAllChars, getCharbyId };
+        } else {
+            res.status(200).json({ success: false, message: 'Character does NOT exist!' })
+        }
+    } catch (error) {
+        res.json(error);
+    }
+};
+
+
+module.exports = { getAllChars, getCharbyId, updateCharbyId };
