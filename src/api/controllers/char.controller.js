@@ -23,8 +23,8 @@ const getAllChars = async (req, res) => {
         const characters = await Character.find().skip((pag - 1) * limit).limit(limit);
 
         res.json({
-            previousPage: (pag === 1) ? null : `http://localhost:3000/api/chars/all?pag=${pag - 1}&limit=${limit}`,
-            nextPage: (numPage > pag) ? `http://localhost:3000/api/chars/all?pag=${pag + 1}&limit=${limit}` : null,
+            previousPage: (pag === 1) ? null : `/api/chars/all?pag=${pag - 1}&limit=${limit}`,
+            nextPage: (numPage > pag) ? `/api/chars/all?pag=${pag + 1}&limit=${limit}` : null,
             quantityPage: characters.length,
             data: characters
         });
